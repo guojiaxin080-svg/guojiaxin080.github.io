@@ -258,7 +258,7 @@ p{font-size:13.5px;line-height:1.78;color:var(--muted)}
 .rental-child-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
 .rental-child-head h3{margin:0;font-size:18px}
 .rental-child-head .tag{white-space:nowrap}
-.rental-cart-bar{position:fixed;left:50%;bottom:92px;transform:translateX(-50%);z-index:46;width:398px;display:flex;align-items:center;justify-content:space-between;border:0;border-radius:18px;background:var(--green);color:#fff;padding:13px 16px;box-shadow:0 10px 24px rgba(58,50,34,.24);text-align:left}
+.rental-cart-bar{position:fixed;left:50%;bottom:92px;transform:translateX(-50%);z-index:46;width:382px;display:flex;align-items:center;justify-content:space-between;border:0;border-radius:18px;background:var(--green);color:#fff;padding:13px 16px;box-shadow:0 10px 24px rgba(58,50,34,.24);text-align:left}
 .rental-cart-bar strong{font-size:14px}.rental-cart-bar span{font-size:12px;color:#edf2df}
 .rental-cart-count{display:grid;place-items:center;min-width:28px;height:28px;border-radius:999px;background:#fffaf0;color:var(--green);font-size:12px;font-weight:900;padding:0 7px}
 .rental-record{border:1.5px solid var(--line);border-radius:12px;background:rgba(255,250,240,.9);padding:12px;margin-top:10px}
@@ -274,7 +274,10 @@ p{font-size:13.5px;line-height:1.78;color:var(--muted)}
 .gift-img img{max-width:100%;max-height:100%;object-fit:contain;display:block}
 .gift-img img.gift-photo{mix-blend-mode:multiply}
 .basket-fab{position:fixed;right:18px;bottom:92px;z-index:45;display:flex;align-items:center;gap:10px;border:0;border-radius:999px;background:var(--green);color:#fff;padding:12px 16px;box-shadow:0 8px 18px rgba(58,50,34,.24)}
-.basket-fab strong{font-size:13px}.basket-count{display:grid;place-items:center;min-width:24px;height:24px;border-radius:999px;background:#fffaf0;color:var(--green);font-size:12px;font-weight:900;padding:0 6px}
+.basket-copy{display:grid;gap:2px;min-width:0;text-align:left}
+.basket-fab strong{font-size:13px}
+.basket-note{font-size:12px;line-height:1.35;color:#edf2df}
+.basket-count{display:grid;place-items:center;min-width:24px;height:24px;border-radius:999px;background:#fffaf0;color:var(--green);font-size:12px;font-weight:900;padding:0 6px}
 .hidden{display:none!important}
 .product-shell{display:grid;gap:14px}
 .product-card{border:1.5px solid var(--line);border-radius:16px;background:rgba(255,250,240,.9);padding:16px}
@@ -420,7 +423,7 @@ p{font-size:14.5px;line-height:1.82}
 .market-tab{min-height:66px;padding:6px 3px;font-size:10.5px}
 .market-tab i{font-size:18px;margin-bottom:3px}
 .rental-cart-count,.basket-count{background:#fffaf0;color:#a8673f;font-weight:900}
-.basket-fab{left:50%;right:auto;bottom:92px;transform:translateX(-50%);z-index:45;width:398px;justify-content:space-between;border:0;border-radius:18px;background:var(--green);color:#fff;padding:13px 16px;box-shadow:0 10px 24px rgba(58,50,34,.24)}
+.basket-fab{left:50%;right:auto;bottom:92px;transform:translateX(-50%);z-index:45;width:382px;justify-content:space-between;border:0;border-radius:18px;background:var(--green);color:#fff;padding:13px 16px;box-shadow:0 10px 24px rgba(58,50,34,.24)}
 .basket-fab strong{font-size:14px}
 .basket-count{min-width:28px;height:28px;padding:0 7px;font-size:12px}
 #map .screen-title h2{display:none}
@@ -532,9 +535,11 @@ p{font-size:14.5px;line-height:1.82}
   .product-meta{gap:6px}
   .product-meta span{font-size:11px;padding:5px 8px}
   .cart-row{grid-template-columns:1fr;gap:10px}
-  .basket-fab{left:50%;right:auto;bottom:92px;transform:translateX(-50%);width:calc(100vw - 24px);max-width:398px;padding:12px 14px}
+  .basket-fab{left:50%;right:auto;bottom:92px;transform:translateX(-50%);width:calc(100vw - 36px);max-width:382px;padding:12px 14px}
   .basket-fab strong{font-size:13px}
+  .basket-note{font-size:11px}
   .basket-count{min-width:26px;height:26px}
+  .rental-cart-bar{width:calc(100vw - 36px);max-width:382px;padding:12px 14px}
 }
 </style>
 </head>
@@ -998,7 +1003,7 @@ p{font-size:14.5px;line-height:1.82}
     </section>
   </div>
 
-  <button id="basketFab" class="basket-fab hidden" onclick="showCart()"><strong>小菜篮</strong><span id="basketCount" class="basket-count">0</span></button>
+  <button id="basketFab" class="basket-fab hidden" onclick="showCart()"><span class="basket-copy"><strong>小菜篮</strong><span class="basket-note">已选商品和菜品</span></span><span id="basketCount" class="basket-count">0</span></button>
   <button id="rentalCartBar" class="rental-cart-bar hidden" onclick="showRentalCart()"><span><strong>租赁车</strong><br><span>已选工具与模块</span></span><span id="rentalCartCount" class="rental-cart-count">0</span></button>
 
   <nav class="nav">
