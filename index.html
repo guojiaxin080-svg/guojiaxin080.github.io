@@ -65,6 +65,8 @@ p{font-size:13.5px;line-height:1.78;color:var(--muted)}
 .hero-main p{max-width:280px;margin:18px auto 0;color:var(--muted)}
 .home-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
 .home-action-card{min-height:176px;border:0;border-radius:20px;padding:18px 18px 16px;position:relative;overflow:hidden;text-align:left;color:#fff;box-shadow:0 10px 24px rgba(58,50,34,.16)}
+.home-action-card{transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}
+.home-action-card:active{transform:translateY(3px) scale(.975);box-shadow:0 5px 14px rgba(58,50,34,.18);filter:brightness(.97)}
 .home-action-card:before{content:"";position:absolute;inset:0;opacity:.16;background:
   radial-gradient(circle at 18% 18%,rgba(255,255,255,.42),transparent 24%),
   linear-gradient(135deg,rgba(255,255,255,.08),transparent 48%)}
