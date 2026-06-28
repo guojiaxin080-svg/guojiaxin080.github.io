@@ -191,6 +191,18 @@ p{font-size:13.5px;line-height:1.78;color:var(--muted)}
 .market-thumb img.gift-photo{width:110px;height:84px;mix-blend-mode:multiply}
 .market-main b{display:block;font-size:14px;margin-bottom:4px}.market-main p{font-size:11px;line-height:1.45;max-height:34px;overflow:hidden}.market-main strong{display:block;margin-top:5px;color:var(--brown);font-size:13px}
 .quick-add{width:34px;height:34px;border:0;border-radius:50%;background:var(--green);color:#fff;font-size:20px;font-weight:900}
+.farmer-entry{grid-template-columns:minmax(0,1fr) 54px;overflow:hidden}
+.farmer-entry .market-main{grid-template-columns:88px minmax(0,1fr);min-width:0}
+.farmer-entry .market-main > div:last-child{min-width:0}
+.farmer-entry .market-thumb{width:88px;height:76px;align-items:center;justify-content:center}
+.farmer-entry .market-thumb img.farmer-photo{width:72px;height:72px;object-fit:cover;border-radius:18px}
+.farmer-entry .market-main p{display:-webkit-box;max-height:none;overflow:hidden;-webkit-line-clamp:2;-webkit-box-orient:vertical;text-overflow:ellipsis}
+.farmer-entry .market-main b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shop-enter{width:50px;height:34px;border:0;border-radius:999px;background:var(--green);color:#fff;font-size:13px;font-weight:900}
+.farmer-shop-hero{display:grid;grid-template-columns:74px 1fr;gap:14px;align-items:center;border:1.5px solid var(--line);border-radius:18px;background:rgba(255,250,240,.9);padding:14px;margin-bottom:14px}
+.farmer-shop-hero .farmer-avatar{width:64px;height:64px;border-radius:20px}.farmer-shop-hero h3{font-size:22px;margin-bottom:5px}.farmer-shop-hero p{font-size:12.5px;line-height:1.65}
+.farmer-shop-hero .farmer-avatar{background:transparent;color:var(--green)}
+.farmer-shop-list{display:grid;gap:10px}
 .people-map{height:430px;position:relative;border:1.5px solid var(--line);background:rgba(255,250,240,.55);overflow:hidden}
 .live-chat{display:grid;gap:9px;min-height:250px;max-height:320px;overflow:auto}
 .msg{max-width:86%;padding:10px 12px;border:1.5px solid var(--green);border-radius:16px;background:var(--paper2);font-size:12px;line-height:1.45;color:var(--green);font-weight:800}
@@ -227,6 +239,26 @@ p{font-size:13.5px;line-height:1.78;color:var(--muted)}
 .face:before{content:"";position:absolute;top:12px;left:20px;width:32px;height:32px;border-radius:50%;background:#d9b58b;border:2px solid var(--green)}
 .face.f1{left:20px;top:52px}.face.f2{right:28px;top:178px}.face.f3{left:122px;bottom:30px}.face.f4{right:150px;bottom:140px}
 .row{display:block;width:100%;color:var(--ink);border:1.5px solid var(--line);border-radius:4px;padding:11px;background:rgba(255,250,240,.84);text-align:left}
+.about-note{color:#4f5748;font-size:13px;line-height:1.72}
+.about-highlight{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.about-highlight .tag-card{border:1.5px solid var(--line);border-radius:12px;background:#f4ecdf;padding:10px 8px;text-align:center}
+.about-highlight b{display:block;color:var(--green);font-size:13px;margin-bottom:4px}
+.about-highlight span{display:block;color:var(--muted);font-size:11px;line-height:1.4}
+.about-flow{margin-top:14px}
+.about-flow-head{display:flex;align-items:end;justify-content:space-between;gap:10px;margin-bottom:10px}
+.about-flow-head h3{font-size:19px}
+.about-flow-head span{color:var(--brown);font-size:12px;font-weight:900}
+.about-flow-strip{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 8px}
+.about-flow-strip::-webkit-scrollbar{height:5px}
+.about-flow-strip::-webkit-scrollbar-thumb{background:rgba(67,85,54,.25);border-radius:999px}
+.about-step{position:relative;flex:0 0 146px;display:grid;gap:8px;padding:16px 10px 12px;border:1.5px solid var(--line);border-radius:14px;background:rgba(255,250,240,.9);text-align:center}
+.about-step-no{position:absolute;left:8px;top:8px;width:24px;height:24px;border-radius:50%;background:var(--green);color:#fffaf0;display:grid;place-items:center;font-size:10px;font-weight:900;letter-spacing:.5px}
+.about-step-icon{width:74px;height:74px;margin:6px auto 0;display:grid;place-items:center}
+.about-step-icon img{width:74px;height:74px;object-fit:contain;display:block}
+.about-step b{display:block;color:var(--green);font-size:14px;line-height:1.2}
+.about-step p{font-size:11px;line-height:1.55;color:var(--muted)}
+.about-flow-arrow{flex:0 0 18px;display:grid;place-items:center;color:var(--brown);font-size:18px;font-weight:900}
+.about-tail{margin-top:10px;color:#4f5748;font-size:12px;line-height:1.7}
 .job-card{border:1.5px solid var(--line);border-radius:8px;background:rgba(255,250,240,.86);padding:14px;margin-top:12px;text-align:left}
 .job-card b{display:block;font-size:16px;margin-bottom:8px;color:var(--ink)}
 .job-meta{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
@@ -629,6 +661,7 @@ p{font-size:14.5px;line-height:1.82}
         <button class="experience-option" onclick="show('route3')"><span class="experience-icon">三</span><span><b>三日路线预约</b><small>3DAYS 路线介绍，串联山野、水岸、市集和共食。</small></span></button>
         <button class="experience-option" onclick="show('group-booking')"><span class="experience-icon">团</span><span><b>团体研学预约</b><small>多种团队活动推荐，可填写预约信息。</small></span></button>
         <button class="experience-option" onclick="showRentalHome()"><span class="experience-icon">租</span><span><b>工具租赁</b><small>农具、渔具与空间模块，配合活动预约一起使用。</small></span></button>
+        <button class="experience-option" onclick="show('flower-science')"><span class="experience-icon"></span><span><b>科普角</b><small>霸王花介绍、开花采收与晾晒工艺。</small></span></button>
       </div>
     </section>
 
@@ -937,7 +970,55 @@ p{font-size:14.5px;line-height:1.82}
       </div>
     </section>
 
-    <section id="gift" class="screen" data-title="GIFT MARKET">
+    <section id="flower-science" class="screen" data-title="FLOWER SCIENCE">
+      <button class="back" onclick="show('experience')">&#36820;&#22238;&#20307;&#39564;</button>
+      <div class="screen-title"><span class="label">科普角</span><h2>霸王花</h2></div>
+      <div class="section paper">
+        <div class="section-head"><h3>霸王花是什么</h3><div class="tag">FLOWER</div></div>
+        <p class="about-note">霸王花是安来田间最有代表性的作物之一，也叫剑花。它既能入菜、煲汤，也能晒干后做成汤包和伴手礼，是连接种植、加工、餐桌与市集的一条在地线索。</p>
+        <div class="about-highlight">
+          <div class="tag-card"><b>作物特点</b><span>花形修长，夜里开花</span></div>
+          <div class="tag-card"><b>日常用途</b><span>煲汤、晒制、分装</span></div>
+          <div class="tag-card"><b>在地意义</b><span>连接田间与餐桌</span></div>
+        </div>
+      </div>
+      <div class="section paper about-flow">
+        <div class="about-flow-head"><h3>生长与开花流程</h3><span>GROWTH</span></div>
+        <div class="about-flow-strip">
+          <div class="about-step"><span class="about-step-no">01</span><div class="about-step-icon"><img src="html-images/about-step-01.png" alt="扦插定植"></div><div><b>扦插定植</b><p>把健康枝条插入土中，等待生根。</p></div></div>
+          <div class="about-flow-arrow">→</div>
+          <div class="about-step"><span class="about-step-no">02</span><div class="about-step-icon"><img src="html-images/about-step-02.png" alt="生根成苗"></div><div><b>生根成苗</b><p>枝条逐渐稳定，形成基础根系。</p></div></div>
+          <div class="about-flow-arrow">→</div>
+          <div class="about-step"><span class="about-step-no">03</span><div class="about-step-icon"><img src="html-images/about-step-03.png" alt="茎节生长"></div><div><b>茎节生长</b><p>沿架子或墙面攀附，进入生长期。</p></div></div>
+          <div class="about-flow-arrow">→</div>
+          <div class="about-step"><span class="about-step-no">04</span><div class="about-step-icon"><img src="html-images/about-step-04.png" alt="孕蕾待放"></div><div><b>孕蕾待放</b><p>花苞慢慢形成，等待合适天气。</p></div></div>
+          <div class="about-flow-arrow">→</div>
+          <div class="about-step"><span class="about-step-no">05</span><div class="about-step-icon"><img src="html-images/about-step-05.png" alt="夜间开花"></div><div><b>夜间开花</b><p>霸王花多在夜里盛放，是最明显的花期。</p></div></div>
+          <div class="about-flow-arrow">→</div>
+          <div class="about-step"><span class="about-step-no">06</span><div class="about-step-icon"><img src="html-images/about-step-06.png" alt="花期采收"></div><div><b>花期采收</b><p>在合适时间采下，进入鲜食或加工环节。</p></div></div>
+        </div>
+      </div>
+      <div class="section paper about-flow">
+        <div class="about-flow-head"><h3>采收与晾晒工艺</h3><span>PROCESS</span></div>
+        <div class="about-flow-strip">
+          <div class="about-step"><span class="about-step-no">07</span><div class="about-step-icon"><img src="html-images/about-step-07.png" alt="分拣整理"></div><div><b>分拣整理</b><p>按花朵状态与用途做初步挑选。</p></div></div>
+          <div class="about-flow-arrow">→</div>
+          <div class="about-step"><span class="about-step-no">08</span><div class="about-step-icon"><img src="html-images/about-step-08.png" alt="清洗处理"></div><div><b>清洗处理</b><p>去掉杂质，完成基础清洁。</p></div></div>
+          <div class="about-flow-arrow">→</div>
+          <div class="about-step"><span class="about-step-no">09</span><div class="about-step-icon"><img src="html-images/about-step-09.png" alt="开花处理"></div><div><b>开花处理</b><p>按需要修整和切分，方便后续晾晒。</p></div></div>
+          <div class="about-flow-arrow">→</div>
+          <div class="about-step"><span class="about-step-no">10</span><div class="about-step-icon"><img src="html-images/about-step-10.png" alt="晾晒脱水"></div><div><b>晾晒脱水</b><p>在通风干燥条件下慢慢晒干。</p></div></div>
+          <div class="about-flow-arrow">→</div>
+          <div class="about-step"><span class="about-step-no">11</span><div class="about-step-icon"><img src="html-images/about-step-11.png" alt="低温干燥"></div><div><b>低温干燥</b><p>天气不稳时配合低温干燥，控制含水量。</p></div></div>
+          <div class="about-flow-arrow">→</div>
+          <div class="about-step"><span class="about-step-no">12</span><div class="about-step-icon"><img src="html-images/about-step-12.png" alt="保存分装"></div><div><b>保存分装</b><p>成为煲汤原料、汤包和伴手礼。</p></div></div>
+        </div>
+        <p class="about-tail">一朵霸王花，从夜里开放到餐桌入汤，再到晒制成包，承接的是种植经验、加工手艺和安来的日常生活。</p>
+      </div>
+
+    </section>
+
+<section id="gift" class="screen" data-title="GIFT MARKET">
       <button class="back" onclick="show(lastTab || 'market')">返回</button>
       <div class="screen-title"><span class="label">带点什么回家</span><h2>安来伴手礼</h2></div>
       <div class="grid2" id="giftList"></div>
@@ -956,6 +1037,16 @@ p{font-size:14.5px;line-height:1.82}
             <button class="primary" onclick="addCurrentProductToCart()">加入购物车</button>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="farmer-shop" class="screen" data-title="FARMER SHOP">
+      <button class="back" onclick="show(farmerShopBackTarget || 'market')">返回农户</button>
+      <div class="screen-title"><span class="label">农户店铺</span><h2 id="farmerShopTitle"></h2></div>
+      <div id="farmerShopHero"></div>
+      <div class="section paper">
+        <div class="section-head"><h3>可选菜品</h3><div class="tag">SHOP</div></div>
+        <div id="farmerShopList" class="farmer-shop-list"></div>
       </div>
     </section>
 
@@ -1280,6 +1371,58 @@ const farmerGroups = [
     ]
   }
 ];
+const farmerShopItems = {
+  "farm-01": [
+    { id:"farm-01-flower", name:"霸王花鲜扎", intro:"清晨采收的霸王花，适合煲汤或加工体验。", price:"12r/扎", specs:["当日采收","适合煲汤"], visual:"花" },
+    { id:"farm-01-loofah", name:"田园丝瓜", intro:"藤架上新摘的丝瓜，适合清炒、蒸肉饼和共厨轻食。", price:"6r/斤", specs:["新鲜采摘","田园小菜"], visual:"瓜" },
+    { id:"farm-01-cucumber", name:"本地青瓜", intro:"口感清爽，适合凉拌、轻食和小菜篮加购。", price:"5r/斤", specs:["爽脆清甜","可到店取"], visual:"瓜" }
+  ],
+  "farm-02": [
+    { id:"farm-02-leaf", name:"番薯叶", intro:"适合蒜蓉快炒，也可作为共享厨房轻食配菜。", price:"5r/斤", specs:["今日采摘","家常青菜"], visual:"叶" },
+    { id:"farm-02-shiso", name:"紫苏", intro:"香气明显，适合配鱼鲜、凉拌和煮汤。", price:"4r/把", specs:["香草配菜","水边鱼鲜搭配"], visual:"苏" },
+    { id:"farm-02-herb", name:"田间香草束", intro:"由当季香草组合，适合做花草茶或料理点缀。", price:"10r/束", specs:["小束包装","适合伴手"], visual:"草" }
+  ],
+  "farm-03": [
+    { id:"farm-03-flower-ice", name:"霸王花雪糕", intro:"用霸王花风味做成的轻甜雪糕，适合路线中途尝鲜。", price:"18r/支", specs:["冷甜品","到店取"], visual:"雪" },
+    { id:"farm-03-goose-ice", name:"烧鹅味雪糕", intro:"带一点在地趣味的限定口味，适合打卡分享。", price:"22r/支", specs:["限定口味","冷甜品"], visual:"鹅" },
+    { id:"farm-03-tea", name:"花草冰饮", intro:"以花草茶底搭配清爽冰饮，适合夏日下午。", price:"16r/杯", specs:["清爽饮品","可堂食"], visual:"饮" }
+  ],
+  "farm-04": [
+    { id:"farm-04-chicken", name:"霸王别鸡食材包", intro:"搭配霸王花和走地鸡的共食食材包，适合提前预约。", price:"68r/份", specs:["适合2-3人","需预约"], visual:"鸡" },
+    { id:"farm-04-pick", name:"田间采摘名额", intro:"跟着陈姨到田间采摘并认识今日食材。", price:"12r/位", specs:["体验名额","可预约"], visual:"采" },
+    { id:"farm-04-soup", name:"霸王花汤料包", intro:"适合带回家煲汤的小份汤料组合。", price:"28r/包", specs:["干花汤料","伴手礼"], visual:"汤" }
+  ],
+  "farm-05": [
+    { id:"farm-05-seafood", name:"河鲜拼配", intro:"当日近岸鱼鲜、虾与小海产组合，适合共食加菜。", price:"36r/份", specs:["当日鱼鲜","适合共食"], visual:"鲜" },
+    { id:"farm-05-shrimp", name:"鲜虾", intro:"适合白灼、蒸粉丝或做水边轻食。", price:"28r/份", specs:["当日到货","水边菜品"], visual:"虾" },
+    { id:"farm-05-clam", name:"小海产组合", intro:"小份海产组合，适合游客尝鲜。", price:"24r/份", specs:["小份加购","到店取"], visual:"贝" }
+  ],
+  "farm-06": [
+    { id:"farm-06-catfish", name:"豹猫鱼", intro:"鱼档精选鱼鲜，适合清蒸或煮汤。", price:"48r/份", specs:["精选鱼鲜","适合蒸煮"], visual:"鱼" },
+    { id:"farm-06-fillet", name:"净鱼片", intro:"处理好的鱼片，适合企业团餐和共厨加菜。", price:"32r/份", specs:["已处理","团餐加菜"], visual:"片" },
+    { id:"farm-06-soup", name:"鱼汤料", intro:"适合煲一锅水边风味鱼汤的组合。", price:"30r/份", specs:["汤料组合","可预约"], visual:"汤" }
+  ],
+  "farm-07": [
+    { id:"farm-07-clam", name:"白贝", intro:"适合做汤底、清蒸或配粉面。", price:"22r/份", specs:["鲜活贝类","汤底适配"], visual:"贝" },
+    { id:"farm-07-shrimp", name:"河虾", intro:"小份河虾，适合水边轻食和家庭加菜。", price:"26r/份", specs:["鲜虾","小份加购"], visual:"虾" },
+    { id:"farm-07-shell", name:"贝类拼盘", intro:"组合多种贝类，适合共厨体验。", price:"35r/份", specs:["组合拼盘","适合共食"], visual:"拼" }
+  ],
+  "farm-08": [
+    { id:"farm-08-platter", name:"海鲜小拼", intro:"轻量海鲜拼盘，适合个人下单和游客尝鲜。", price:"24r/份", specs:["个人份","即点即取"], visual:"拼" },
+    { id:"farm-08-clam", name:"鲜蚬", intro:"适合姜葱快炒或煮汤。", price:"20r/份", specs:["鲜活小海产","家常菜"], visual:"蚬" },
+    { id:"farm-08-snack", name:"海边小食盒", intro:"适合边走边吃的轻量小食组合。", price:"18r/盒", specs:["轻食盒","游客尝鲜"], visual:"盒" }
+  ],
+  "farm-09": [
+    { id:"farm-09-fillet", name:"时令鱼片", intro:"按当日鱼获切配，适合清蒸或煮粥。", price:"30r/份", specs:["时令鱼获","已切配"], visual:"片" },
+    { id:"farm-09-shrimp", name:"鲜虾", intro:"适合白灼、油盐水或共厨加菜。", price:"28r/份", specs:["鲜虾","共食加菜"], visual:"虾" },
+    { id:"farm-09-snack", name:"海边小食", intro:"小份水边风味小食，适合市集路线上加购。", price:"16r/份", specs:["小份","市集加购"], visual:"食" }
+  ],
+  "farm-10": [
+    { id:"farm-10-fish", name:"时令鱼", intro:"根据当天鱼获供应，适合家庭和周末游客购买。", price:"34r/份", specs:["当日供应","家庭加菜"], visual:"鱼" },
+    { id:"farm-10-sea", name:"海产拼", intro:"小份海产组合，适合一桌共食补充。", price:"26r/份", specs:["小份拼配","适合共食"], visual:"海" },
+    { id:"farm-10-shrimp", name:"鲜虾小盒", intro:"方便带走的小盒鲜虾，适合到店取。", price:"28r/盒", specs:["盒装","到店取"], visual:"虾" }
+  ]
+};
 const farmerAvatarMap = {
   "farm-01":"html-images/farmer-01.png",
   "farm-02":"html-images/farmer-02.png",
@@ -1352,6 +1495,16 @@ farmerGroups.forEach(group => group.items.forEach(item => {
     buyLabel: group.action
   };
 }));
+Object.entries(farmerShopItems).forEach(([farmerId, items]) => {
+  const farmer = farmerGroups.flatMap(group => group.items).find(item => item.id === farmerId);
+  items.forEach(item => {
+    allProducts[item.id] = {
+      ...item,
+      category: farmer ? farmer.name + "店铺" : "农户店铺",
+      back: "farmer-shop"
+    };
+  });
+});
 const bookingCatalog = {
   "day-field": {
     title: "田间小课",
@@ -1439,6 +1592,8 @@ const recruits = [
 ];
 let productBackTarget = "market";
 let currentProductId = "";
+let currentFarmerId = "";
+let farmerShopBackTarget = "market";
 let cartItems = [];
 let deliveryMode = "pickup";
 let rentalListBack = "rental-home";
@@ -1494,7 +1649,7 @@ function parsePrice(value){
 }
 function updateBasketFab(){
   const fab = document.getElementById("basketFab");
-  const showOn = new Set(["market","gift","source","product-detail","cart","checkout"]);
+  const showOn = new Set(["market","gift","source","farmer-shop","product-detail","cart","checkout"]);
   fab.classList.toggle("hidden", !showOn.has(current));
   document.getElementById("basketCount").textContent = String(cartItems.reduce((sum,item)=>sum + item.qty, 0));
   updateRentalCartBar();
@@ -1681,6 +1836,53 @@ function productRow(product, backTarget, label){
     <button class="quick-add" onclick="addToCart('${product.id}')" title="加入小菜篮">+</button>
   </div>`;
 }
+function getFarmerById(id){
+  for(const group of farmerGroups){
+    const farmer = group.items.find(item => item.id === id);
+    if(farmer) return { farmer, group };
+  }
+  return null;
+}
+function renderFarmerAvatar(item){
+  const src = farmerAvatarMap[item.id];
+  return src ? `<img src="${src}" alt="${item.name}头像" class="farmer-photo">` : item.avatar;
+}
+function farmerShopRow(item, group){
+  return `<div class="market-product farmer-entry">
+    <button class="market-main" onclick="openFarmerShop('${item.id}','market')">
+      <div class="market-thumb">${renderFarmerAvatar(item)}</div>
+      <div>
+        <b>${item.name}</b>
+        <p>${item.intro}</p>
+      </div>
+    </button>
+    <button class="shop-enter" onclick="openFarmerShop('${item.id}','market')" title="${group.action}">进店</button>
+  </div>`;
+}
+function openFarmerShop(id, backTarget){
+  const found = getFarmerById(id);
+  if(!found) return;
+  currentFarmerId = id;
+  farmerShopBackTarget = backTarget || current || "market";
+  renderFarmerShop();
+  show("farmer-shop");
+}
+function renderFarmerShop(){
+  const found = getFarmerById(currentFarmerId);
+  if(!found) return;
+  const { farmer, group } = found;
+  const items = farmerShopItems[currentFarmerId] || [];
+  document.getElementById("farmerShopTitle").textContent = farmer.name;
+  document.getElementById("farmerShopHero").innerHTML = `<div class="farmer-shop-hero">
+    <div class="farmer-avatar">${renderFarmerAvatar(farmer)}</div>
+    <div>
+      <div class="tag">${group.badge}</div>
+      <h3>${farmer.name}</h3>
+      <p>${farmer.intro}</p>
+    </div>
+  </div>`;
+  document.getElementById("farmerShopList").innerHTML = items.map(item => productRow(allProducts[item.id], "farmer-shop")).join("");
+}
 function renderMarketPanel(category){
   activeMarketCategory = category || activeMarketCategory;
   ["menu","farm","gift"].forEach(key => {
@@ -1703,7 +1905,7 @@ function renderMarketPanel(category){
       <div>
         <div class="market-group-title"><h3>${group.title}</h3><span>${group.badge}</span></div>
         <p>${group.desc}</p>
-        ${group.items.map(item => productRow(allProducts[item.id], "market")).join("")}
+        ${group.items.map(item => farmerShopRow(item, group)).join("")}
       </div>
     `).join("");
     return;
@@ -1792,7 +1994,7 @@ function addToCart(id){
   updateBasketFab();
 }
 function showCart(){
-  if(new Set(["market","gift","source","product-detail"]).has(current)){
+  if(new Set(["market","gift","source","farmer-shop","product-detail"]).has(current)){
     productBackTarget = current === "product-detail" ? productBackTarget : current;
   }
   renderCart();
@@ -2037,8 +2239,7 @@ function init(){
           <div>
             <span class="farmer-name">${item.name}</span>
             <span class="farmer-desc">${item.intro}</span>
-            <div class="goods-tags">${item.tags.map(tag=>`<span>${tag}</span>`).join("")}</div>
-            <div class="farmer-actions"><button class="outline-btn" onclick="openProduct('${item.id}','source')">${group.action}</button><button class="outline-btn" onclick="openProduct('${item.id}','source')">介绍</button></div>
+            <div class="farmer-actions"><button class="outline-btn" onclick="openFarmerShop('${item.id}','source')">进店</button></div>
           </div>
         </div>
       `).join("")}
