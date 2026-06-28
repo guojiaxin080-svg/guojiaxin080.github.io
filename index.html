@@ -31,7 +31,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .brand b{font-size:23px;letter-spacing:2px;font-weight:900;display:block}.brand span{font-size:11px;letter-spacing:2px;color:var(--muted);font-weight:800}
 .avatar{width:38px;height:38px;border-radius:50%;border:2px solid var(--green);display:grid;place-items:center;background:var(--paper2);font-size:17px;font-weight:900}
 .wrap{position:relative;z-index:1;padding:16px}
-.screen{display:none}.screen.active{display:block}
+.screen{display:none}.screen.active{display:block;animation:pageIn .3s cubic-bezier(.2,.75,.2,1)}
 .paper{background:rgba(255,250,240,.9);border:2px solid var(--line);border-radius:4px;padding:14px;box-shadow:0 6px 20px var(--shadow);position:relative}
 .paper:after{content:"";position:absolute;left:14px;right:14px;top:8px;border-top:1px solid rgba(67,85,54,.42)}
 .label{display:inline-block;background:var(--green);color:#fff;border-radius:4px;padding:4px 12px;font-size:13px;font-weight:900;letter-spacing:2px;box-shadow:0 2px 0 rgba(0,0,0,.08)}
@@ -344,6 +344,18 @@ p{font-size:13.5px;line-height:1.78;color:var(--muted)}
 .nav button.nav-center span{font-size:30px;margin-bottom:2px}
 .nav button.nav-center.on{outline:4px solid rgba(67,85,54,.18)}
 .back{border:0;background:transparent;color:var(--green);font-size:13px;font-weight:900;margin-bottom:10px;padding:0}
+
+button,.detail-action{transition:transform .16s ease,filter .16s ease,box-shadow .16s ease}
+button:active,.detail-action:active{transform:scale(.965);filter:brightness(.96)}
+.nav button.nav-tap{animation:tabPop .28s cubic-bezier(.2,.9,.25,1)}
+.basket-count.bump{animation:basketBump .34s cubic-bezier(.2,1.25,.3,1)}
+@keyframes pageIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes tabPop{0%{transform:scale(.94)}60%{transform:scale(1.06)}100%{transform:scale(1)}}
+@keyframes basketBump{0%{transform:scale(1)}45%{transform:scale(1.28)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){
+  .screen.active,.nav button.nav-tap,.basket-count.bump{animation:none}
+  button,.detail-action{transition:none}
+}
 
 /* Presentation-scale overrides for desktop preview */
 html,body{font-size:18.5px}
@@ -1636,12 +1648,21 @@ function show(id){
   current = id;
   document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
   document.getElementById(id).classList.add("active");
-  document.querySelectorAll(".nav button").forEach(b=>b.classList.remove("on"));
+  document.querySelectorAll(".nav button").forEach(b=>b.classList.remove("on","nav-tap"));
   const nav = document.getElementById("nav-" + id);
-  if(nav) nav.classList.add("on");
+  if(nav){
+    nav.classList.add("on");
+    replayAnimation(nav, "nav-tap");
+  }
   document.getElementById("subtitle").textContent = document.getElementById(id).dataset.title || "MINIPERMAR";
   updateBasketFab();
   window.scrollTo(0,0);
+}
+function replayAnimation(el, className){
+  if(!el) return;
+  el.classList.remove(className);
+  void el.offsetWidth;
+  el.classList.add(className);
 }
 function parsePrice(value){
   const num = String(value).match(/\d+/);
@@ -1653,6 +1674,9 @@ function updateBasketFab(){
   fab.classList.toggle("hidden", !showOn.has(current));
   document.getElementById("basketCount").textContent = String(cartItems.reduce((sum,item)=>sum + item.qty, 0));
   updateRentalCartBar();
+}
+function bumpBasketCount(){
+  replayAnimation(document.getElementById("basketCount"), "bump");
 }
 function updateRentalCartBar(){
   const bar = document.getElementById("rentalCartBar");
@@ -1992,6 +2016,7 @@ function addToCart(id){
     cartItems.push({ id, qty: 1 });
   }
   updateBasketFab();
+  bumpBasketCount();
 }
 function showCart(){
   if(new Set(["market","gift","source","farmer-shop","product-detail"]).has(current)){
